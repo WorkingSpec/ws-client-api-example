@@ -152,7 +152,6 @@ h1 {
 ```javascript
 // constants
 
-// or use https://workingspec.com for NZ companies
 const baseUrl = 'https://workingspec.me'
 const companyAbbrev = 'rk'
 
