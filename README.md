@@ -105,7 +105,7 @@ h1 {
   font-weight: normal;
 }
 
-.detail-grid-item h4 {
+.detail-grid-item h3 {
   flex-grow: 1;
 }
 
