@@ -1,2 +1,2 @@
-# ws-client-api-example
-Working Spec Client API Example
+# Working Spec Client API Example
+

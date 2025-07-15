@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Working Spec API Example</title>
+
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+  <h1>Working Spec API Example</h1>
+  <h2>Details</h2>
+
+  <ul id="detail-grid"></ul>
+
+  <dialog id="detail-viewer">
+    <form><button formmethod="dialog">✖</button></form>
+    <iframe autofocus></iframe>
+  </dialog>
+
+  <template id="detail-grid-item-template">
+    <li class="detail-grid-item">
+      <img class="detail-company-logo">
+      <img class="detail-image">
+      <h3 class="detail-name"></h3>
+      <h4>
+        <strong class="brand-name"></strong>:
+        <span class="product-name"></span>
+      </h4>
+      <p class="detail-abbrev"><small></small></p>
+    </li>
+  </template>
+
+  <script src="main.js"></script>
+</body>
+
+</html>
