@@ -1,7 +1,14 @@
+// Working Spec Ltd - Website Embed API Example 
+
 // constants
 
-const baseUrl = 'https://workingspec.me'
-const companyAbbrev = 'rk'
+// The baseUrl for this API call will be one of:  
+// * https://workingspec.com - New Zealand (default) server
+// * https://workingspec.com.au - Australian server
+const baseUrl = 'https://workingspec.com'
+
+// The company abbrev for your company.  
+const companyAbbrev = 'jh' // James Hardie 
 
 const apiUrl = `${baseUrl}/api/client/v1/company/${companyAbbrev}`
 

@@ -1,6 +1,97 @@
-# Working Spec Client API Example
+# Working Spec Ltd - Website Embed API Example
 
-## HTML
+- [Working Spec Ltd - Website Embed API Example](#working-spec-ltd---website-embed-api-example)
+  - [Overview](#overview)
+  - [Working Spec API](#working-spec-api)
+  - [Listings](#listings)
+    - [HTML](#html)
+    - [CSS](#css)
+    - [JavaScript](#javascript)
+
+## Overview
+
+This is a working example of the web code used to generate a grid of
+Working Spec 3D interactive models and then respond to user selection 
+by launching the Working Spec WebGL player in a popup window.
+
+The 3 files used in this demo are in the _www_ folder:
+
+* _index.html_ 
+* _main.css_
+* _main.js_
+
+To run this demo simply:
+
+*  Copy the _www_ folder and contents to an empty folder on your machine.
+*  Open a new browser tab.
+*  In the address bar enter: _file://<your folder>/www/index.html_.
+*  Your browser should display a grid of Working Spec models. 
+*  Click on one of models in the grid.
+*  A popup window should load the Working Spec webGL player and display the selected model,.
+  
+## Working Spec API
+
+The Javascript file _main.js_ calls the Working Spec API with route: _/api/client/v1/company/<abbrev>_.
+
+Here <abbrev> refers to your company code. e.g. _jh_ will return model data for _James Hardie_ 
+
+The baseUrl for this API call will be one of:  
+
+* https://workingspec.com - New Zealand (default) server
+* https://workingspec.com.au - Australian server
+
+The API call returns json in the form:
+
+```json
+{
+    "abbrev": "jh",
+    "name": "James Hardie",
+    "externalUri": "https://www.jameshardie.co.nz",
+    "logomarkUri": "https://workingspec.com/img-files/jh-logomark.svg",
+    "brands": [
+        {
+            "abbrev": "jc",
+            "name": "JH Cladding",
+            "products": [
+                {
+                    "abbrev": "axn",
+                    "name": "Axon Panel",
+                    "details": [
+                        {
+                            "abbrev": "jh-axn-mfl",
+                            "name": "Horizontal joint at floor joist",
+                            "detailSku": "Figure 29 - Axon Panel CLD",
+                            "videoId": "",
+                            "externalUri": "",
+                            "previewImageUri": "https://workingspec.com/files/jh-axn-mfl/3d-model.jpg"
+                        }
+                        .... repeated
+                    ]
+                }
+            ]
+        }
+    ]
+}
+```
+
+Working Spec model database hierachy is: _Company -> Brand -> Product -> Detail_
+
+A call to _/api/client/v1/company/<abbrev>_ will return _json_ information for all company models.
+
+Here is an example Javascript API call.
+
+```javascript
+// This call will return json for all 'jh' (James Hardie) models.
+const res = await fetch('https://workingspec.com/api/client/v1/company/jh')
+```
+
+## Listings
+
+The following list the code in the example files in the _www_ folder.
+
+### HTML
+
+Filename: _www/index.html_
 
 ```html
 <!doctype html>
@@ -45,7 +136,10 @@
 </html>
 ```
 
-## CSS
+
+### CSS
+
+Filename: _www/main.css_
 
 ```css
 html {
@@ -147,13 +241,20 @@ h1 {
 }
 ```
 
-## JavaScript
+### JavaScript
+
+Filename: _www/main.js_
+
 
 ```javascript
 // constants
 
-const baseUrl = 'https://workingspec.me'
-const companyAbbrev = 'rk'
+// The baseUrl for this API call will be one of:  
+// * https://workingspec.com - New Zealand (default) server
+// * https://workingspec.com.au - Australian server
+const baseUrl = 'https://workingspec.com'
+
+const companyAbbrev = 'jh' // The company abbrev for your company.  e.g. 'jh' = James Hardie 
 
 const apiUrl = `${baseUrl}/api/client/v1/company/${companyAbbrev}`
 
