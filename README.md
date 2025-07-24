@@ -10,9 +10,9 @@
 
 ## Overview
 
-This is a working example of the web code used to generate a grid of
-Working Spec 3D interactive models and then respond to user selection 
-by launching the Working Spec WebGL player in a popup window.
+This is a working example of the web code used to:
+* generate a selection grid of Working Spec 3D interactive models
+* respond to user selection by launching the Working Spec WebGL player in a popup window.
 
 The 3 files used in this demo are in the _www_ folder:
 
