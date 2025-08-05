@@ -2,7 +2,10 @@
 
 - [Working Spec Ltd - Website Embed API Example](#working-spec-ltd---website-embed-api-example)
   - [Overview](#overview)
+  - [Run the demo](#run-the-demo)
   - [Working Spec API](#working-spec-api)
+    - [JSON](#json)
+    - [Example Calls](#example-calls)
   - [Listings](#listings)
     - [HTML](#html)
     - [CSS](#css)
@@ -10,15 +13,17 @@
 
 ## Overview
 
-This is a working example of the web code used to:
-* generate a selection grid of Working Spec 3D interactive models
+This is working web code to:
+* generate a selection grid of your Working Spec 3D interactive models
 * respond to user selection by launching the Working Spec WebGL player in a popup window.
 
-The 3 files used in this demo are in the _www_ folder:
+The _www_ folder contains the 3 files required by this demo:
 
 * _index.html_ 
 * _main.css_
 * _main.js_
+
+## Run the demo
 
 To run this demo simply:
 
@@ -28,18 +33,25 @@ To run this demo simply:
    - In the address bar enter: `file://<your folder>/www/index.html`.
 *  Your browser should display a grid of Working Spec models. 
 *  Click on one of models in the grid.
-*  A popup window should load the Working Spec webGL player and display the selected model,.
+*  A popup window should load the Working Spec webGL player and display the selected model.
   
 ## Working Spec API
 
-The Javascript file _main.js_ calls the Working Spec API with route: _/api/client/v1/company/<abbrev>_.
+The Javascript file _main.js_ calls the Working Spec API with route: _&lt;baseUrl&gt;/api/client/v1/company/&lt;abbrev&gt;_.
 
-Here <abbrev> refers to your company code. e.g. _jh_ will return model data for _James Hardie_ 
+Here _&lt;abbrev&gt;_ refers to your company code. 
+&emsp;e.g.&ensp; _jh_ will return model data for _James Hardie_ 
 
 The baseUrl for this API call will be one of:  
 
 * https://workingspec.com - New Zealand (default) server
 * https://workingspec.com.au - Australian server
+
+### JSON 
+
+Working Spec model database hierachy is: _Company -> Brand -> Product -> Detail_
+
+A call to _/api/client/v1/company/&lt;abbrev&gt;_ will return _json_  for all &lt;abbrev&gt; company models.
 
 The API call returns json in the form:
 
@@ -65,8 +77,10 @@ The API call returns json in the form:
                             "videoId": "",
                             "externalUri": "",
                             "previewImageUri": "https://workingspec.com/files/jh-axn-mfl/3d-model.jpg"
-                        }
-                        .... repeated
+                        },
+                        ...
+                        ...
+                        ...
                     ]
                 }
             ]
@@ -75,20 +89,22 @@ The API call returns json in the form:
 }
 ```
 
-Working Spec model database hierachy is: _Company -> Brand -> Product -> Detail_
-
-A call to _/api/client/v1/company/<abbrev>_ will return _json_ information for all company models.
-
-Here is an example Javascript API call.
+### Example Calls
 
 ```javascript
-// This call will return json for all 'jh' (James Hardie) models.
-const res = await fetch('https://workingspec.com/api/client/v1/company/jh')
+// This call will return json for all 'ri' (Roofing Industries) models on the NZ server.
+const res = await fetch('https://workingspec.com/api/client/v1/company/ri')
 ```
+
+```javascript
+// This call will return json for all 'jh' (James Hardie) models on the Australian server.
+const res = await fetch('https://workingspec.com.au/api/client/v1/company/jh')
+```
+
 
 ## Listings
 
-The following list the code in the example files in the _www_ folder.
+For your reference, here are listings of the files in the _www_ folder.
 
 ### HTML
 
