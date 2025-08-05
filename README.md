@@ -23,8 +23,9 @@ The 3 files used in this demo are in the _www_ folder:
 To run this demo simply:
 
 *  Copy the _www_ folder and contents to an empty folder on your machine.
-*  Open a new browser tab.
-*  In the address bar enter: _file://<your folder>/www/index.html_.
+*  Either double click index.html, or:
+   - Open a new browser tab.
+   - In the address bar enter: `file://<your folder>/www/index.html`.
 *  Your browser should display a grid of Working Spec models. 
 *  Click on one of models in the grid.
 *  A popup window should load the Working Spec webGL player and display the selected model,.
