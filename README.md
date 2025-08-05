@@ -42,7 +42,7 @@ The Javascript file _main.js_ calls the Working Spec API with route: _&lt;baseUr
 Here _&lt;abbrev&gt;_ refers to your company code. 
 &emsp;e.g.&ensp; _jh_ will return model data for _James Hardie_ 
 
-The baseUrl for this API call will be one of:  
+The _&lt;baseUrl&gt;_ for this API call will be one of:  
 
 * https://workingspec.com - New Zealand (default) server
 * https://workingspec.com.au - Australian server
@@ -79,12 +79,12 @@ The API call returns json in the form:
                             "previewImageUri": "https://workingspec.com/files/jh-axn-mfl/3d-model.jpg"
                         },
                         ...
-                        ...
-                        ...
                     ]
                 }
+                ...
             ]
         }
+        ...
     ]
 }
 ```
