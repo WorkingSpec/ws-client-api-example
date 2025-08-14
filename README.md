@@ -18,6 +18,11 @@ This example contains working web code to:
 * generate a selection grid for models.
 * respond to user selection by launching the model in a popup window.
 
+![Selection Grid](images/ModelSelectionGrid.jpg)
+
+![Popup Player](images/ModelPopupPlayer.jpg)
+
+
 The _www_ folder contains the 3 files required by this demo:
 
 * _index.html_ 
